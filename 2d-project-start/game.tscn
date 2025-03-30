@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc4anoearlb8p"]
+
+[ext_resource type="PackedScene" uid="uid://cq8qydlktvtr" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bn4cnuwrooos3" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cho8rvoy2v8t5" path="res://tree.tscn" id="2_e2o6t"]
+
+[sub_resource type="Curve2D" id="Curve2D_7jktm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -784, -441, 0, 0, 0, 0, 2668, -501, 0, 0, 0, 0, 2696, 1451, 0, 0, 0, 0, -803, 1457, 0, 0, 0, 0, -784, -441)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(0, 1)
+script = ExtResource("1_fc0e3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -643.0
+offset_top = -305.0
+offset_right = 2493.0
+offset_bottom = 1273.0
+
+[node name="Player" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(944, 630)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-944, -630)
+curve = SubResource("Curve2D_7jktm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-784, -441)
+rotation = -0.0173795
+
+[node name="Tree" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(404, 354)
+
+[node name="Tree2" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(1384, 316)
+
+[node name="Tree3" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(1340, 855)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.482353)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -12.0
+offset_right = 51.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 208
+text = "GAME OVER!!"
+
+[connection signal="dead" from="Player" to="." method="_on_player_dead"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
