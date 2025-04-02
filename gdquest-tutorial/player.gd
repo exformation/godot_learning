@@ -23,4 +23,4 @@ func _physics_process(delta: float) -> void:
 	if health <= 0: 
 		dead.emit()
 		#queue_free()
-	Input.get_vector()
+	#Input.get_vector()
