@@ -16,10 +16,11 @@ func _physics_process(delta: float) -> void:
 		#get_node("HappyBoo").play_idle_animation()
 		$HappyBoo.play_idle_animation()
 		
-	const DMGRATE = 500.0
+	const DMGRATE = 50.0
 	var overlapping = %HurtBox.get_overlapping_bodies()
 	health -= DMGRATE*overlapping.size()*delta
 	%ProgressBar.value = health
 	if health <= 0: 
 		dead.emit()
 		#queue_free()
+	Input.get_vector()
