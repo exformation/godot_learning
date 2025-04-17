@@ -1,0 +1,163 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6l5a3hxdiryq"]
+
+[ext_resource type="Script" uid="uid://cjxv304d5x1v7" path="res://mainmenu.gd" id="1_5mbse"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loy4s"]
+bg_color = Color(0.907942, 0.907942, 0.907942, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmhrf"]
+bg_color = Color(0.724642, 0.724643, 0.724642, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_loy4s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2nv2"]
+bg_color = Color(0.435191, 0.435193, 0.435192, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5mbse")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = -11.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 131
+text = "RHYTHMIZE"
+
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="Play" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "play"
+
+[node name="Settings" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "settings"
+
+[node name="Workshop" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "workshop"
+
+[node name="Stats" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "stats"
+
+[node name="Leaderboards" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "leaderboards"
+
+[node name="Achievements" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "achievements"
+
+[node name="Credits" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "credits"
+
+[node name="Donate" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "donate"
+
+[node name="Exit" type="Button" parent="HBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxFlat_loy4s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cmhrf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_loy4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d2nv2")
+text = "exit"

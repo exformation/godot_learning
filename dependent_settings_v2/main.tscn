@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhri43w1lyfxg"]
+
+[ext_resource type="Script" uid="uid://b1oo8vng1rtu8" path="res://vbox.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://ban6yoe648lmf" path="res://pace_button.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b8kn5vl4kvwvk" path="res://h_box_container_2.gd" id="3_h2yge"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -96.0
+offset_right = 127.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ig7tw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pace"
+
+[node name="PaceButton" type="OptionButton" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+selected = 0
+item_count = 3
+popup/item_0/text = "manual"
+popup/item_0/id = 0
+popup/item_1/text = "automatic"
+popup/item_1/id = 1
+popup/item_2/text = "fixed"
+popup/item_2/id = 2
+script = ExtResource("2_0xm2m")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("3_h2yge")
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pace"
+
+[node name="FixedPaceSpeedButton" type="SpinBox" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 2.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key Count"
+
+[node name="KeyCountButton" type="SpinBox" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 4.0
+
+[connection signal="item_selected" from="HBoxContainer/PaceButton" to="HBoxContainer/PaceButton" method="_on_item_selected"]

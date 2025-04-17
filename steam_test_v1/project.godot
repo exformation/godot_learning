@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Node2d="*res://node_2d.tscn"
+Node2d="res://node_2d.tscn"
 
 [rendering]
 

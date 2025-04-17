@@ -1,8 +1,15 @@
 extends Node2D
 
+func _init() -> void:
+	# Set your game's Steam app ID here
+	OS.set_environment("SteamAppId", str(480))
+	OS.set_environment("SteamGameId", str(480))
+
 func _ready() -> void:
-	var steam_api = Engine.get_singleton("Steam")
-	print(steam_api)
-	var app_id = ProjectSettings.get_setting("steam/initialization/app_id")    
-	var initialized : Dictionary = steam_api.steamInitEx(app_id,true)
-	print("Did Steam initialize?: %s " % initialized)
+	initialize_steam()
+
+
+func initialize_steam() -> void:
+	var initialize_response: Dictionary = Steam.steamInitEx()
+	print("Did Steam initialize?: %s " % initialize_response)
+	print(Steam.getPersonaName())

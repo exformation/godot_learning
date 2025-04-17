@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0mmr1ph5u5ot"]
+
+[ext_resource type="Script" uid="uid://bpodx0s7jb8c8" path="res://fps.gd" id="1_3w8p6"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_3w8p6")
+
+[node name="FPS" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)

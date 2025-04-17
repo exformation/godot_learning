@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://dodwrx7mql7jv"]
+
+[ext_resource type="Script" uid="uid://dovglw6cgs80w" path="res://main.gd" id="1_ig7tw"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -107.0
+offset_right = 110.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ig7tw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pace"
+
+[node name="PaceButton" type="OptionButton" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+selected = 0
+item_count = 3
+popup/item_0/text = "manual"
+popup/item_0/id = 0
+popup/item_1/text = "automatic"
+popup/item_1/id = 1
+popup/item_2/text = "fixed"
+popup/item_2/id = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed"
+
+[node name="FixedPaceSpeed" type="SpinBox" parent="HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 2.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key Count"
+
+[node name="KeyCount" type="SpinBox" parent="HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 4.0
