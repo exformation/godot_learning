@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnsdp552mn55q"]
+[gd_scene load_steps=3 format=3 uid="uid://cnsdp552mn55q"]
+
+[ext_resource type="Script" uid="uid://cmopj525kal0j" path="res://choice.gd" id="1_0cj1k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwb40"]
 bg_color = Color(0.872668, 0.435396, 0.599135, 1)
@@ -8,6 +10,7 @@ offset_right = 200.0
 offset_bottom = 200.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mwb40")
+script = ExtResource("1_0cj1k")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

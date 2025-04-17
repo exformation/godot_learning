@@ -1,17 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1fearmg4dqgw"]
+[gd_scene load_steps=3 format=3 uid="uid://c1fearmg4dqgw"]
 
 [ext_resource type="PackedScene" uid="uid://cnsdp552mn55q" path="res://choice.tscn" id="1_nykms"]
+[ext_resource type="Script" uid="uid://dsrmkt3p5jhtr" path="res://cue.gd" id="1_suyr1"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="Cue" type="HBoxContainer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -282.0
-offset_right = 282.0
-offset_bottom = 69.0
+offset_left = -247.0
+offset_right = 247.0
+offset_bottom = 74.0
 grow_horizontal = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
+script = ExtResource("1_suyr1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [node name="C1" parent="." instance=ExtResource("1_nykms")]
 layout_mode = 2
@@ -24,3 +28,5 @@ layout_mode = 2
 
 [node name="C4" parent="." instance=ExtResource("1_nykms")]
 layout_mode = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
