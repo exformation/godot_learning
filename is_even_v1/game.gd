@@ -10,9 +10,9 @@ var cues:Array[Cue] = []
 
 func _ready() -> void:
 	win_height = cam.get_viewport().get_visible_rect().size.y
-	pos = 0#CUE.instantiate().size.y
+	pos = 0
 	cam.offset = Vector2(0, get_viewport_rect().size.y / 2)
-	cue_height = CUE.instantiate().size.y + 10
+	#cue_height = CUE.instantiate().size.y + 10
 	while pos < win_height: 
 		spawn()
 	check_bounds()
@@ -26,32 +26,28 @@ func spawn():
 	add_child(cue)
 	cue.position.y = pos
 	cue.cue_timeout.connect(timeout)
-	pos += cue_height
+	pos += cue.size.y + 10
 
 var keycodes = {
 	KEY_D: 0, KEY_F: 1, KEY_J: 2, KEY_K: 3
 }
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and cues.size() > 0:
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and not cues.is_empty():
 		var cue: Cue = cues.front()
-		var i = keycodes.get(event.keycode)
-		if i:
-			if event.pressed:
-				cue.receive_input(i)
+		var i = keycodes.get(event.keycode,null)
+		if i!=null and event.pressed:
+			cue.receive_input(i)
 	check_bounds()
 	
 func timeout():
-	#score += cue.check() 
-	#print(cue.check())
-	#print(cues.front().expected)
 	var cue:Cue = cues.front()
 	if cue.check():
 		cues.pop_front()
-		cam.position.y += cue_height
+		cam.position.y += cue.size.y + 10
 	else: 
 		print('you done fucked up')
-		# TODO: ugh i don't fucking know how to reset the cue's input! 
+		cue.reset_expected()
 
 func check_bounds():
 	if cues.back().position.y < cam.position.y+win_height:
