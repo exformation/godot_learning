@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://biw4qht0md3ev"]
+
+[ext_resource type="PackedScene" uid="uid://byhoqxbpk6ovn" path="res://main_menu_button.tscn" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bfjakjwetlpok" path="res://main_menu.gd" id="1_7vrkn"]
+
+[sub_resource type="Theme" id="Theme_06t4h"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_06t4h")
+script = ExtResource("1_7vrkn")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 412.0
+offset_top = 247.0
+offset_right = -412.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" parent="Buttons" instance=ExtResource("1_06t4h")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Settings" parent="Buttons" instance=ExtResource("1_06t4h")]
+layout_mode = 2
+
+[node name="Quit" parent="Buttons" instance=ExtResource("1_06t4h")]
+layout_mode = 2
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

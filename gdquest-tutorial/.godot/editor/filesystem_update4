@@ -1,0 +1,8 @@
+res://game.tscn
+res://player.tscn
+res://tree.tscn
+res://mob.tscn
+res://pistol.tscn
+res://bullet.tscn
+res://fps.tscn
+res://game.gd

@@ -3,6 +3,7 @@ extends Node2D
 func _ready() -> void:
 	spawn_mob()
 	spawn_mob()
+	DirAccess.open(OS.get_executable_path())
 
 func spawn_mob():
 	var mob = preload('res://mob.tscn').instantiate()
